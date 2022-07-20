@@ -3,11 +3,13 @@ import 'package:function_tree/function_tree.dart';
 
 void main() {
   runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
       home: MyHome(),
       theme: ThemeData(
         textButtonTheme: TextButtonThemeData(
             style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Colors.amber),
+                foregroundColor: MaterialStateProperty.all(Colors.black),
+                backgroundColor: MaterialStateProperty.all(Colors.pink[100]),
                 fixedSize: MaterialStateProperty.all(Size(100, 100)))),
       )));
 }
@@ -137,27 +139,27 @@ class _MyHomeState extends State<MyHome> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Calculator"),
+          title: Text("My Calculator",style: TextStyle(fontFamily: "Myfont",fontSize: 30,letterSpacing: 1),),
           backgroundColor: Colors.black,
         ),
         body: Column(
           children: [
             Container(
               alignment: Alignment.topRight,
-              padding: EdgeInsets.fromLTRB(20, 100, 10, 10),
-              color: Colors.cyan,
+              padding: EdgeInsets.fromLTRB(20, 90, 10, 10),
+              color: Colors.cyan[200],
               child: SingleChildScrollView(
                 reverse: true,
                 scrollDirection: Axis.horizontal,
                 child: Text(
                   "$expression",
-                  style: TextStyle(fontSize: 30),
+                  style: TextStyle(fontSize: 40),
                   softWrap: true,
                 ),
               ),
             ),
             Container(
-              color: Colors.cyan,
+              color: Colors.cyan[200],
               child: Row(children: [
                 Spacer(),
                 Padding(
@@ -289,10 +291,6 @@ class _MyHomeState extends State<MyHome> {
                 Padding(
                   padding: const EdgeInsets.all(1),
                   child: TextButton(
-                      style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all(Colors.amber),
-                          fixedSize: MaterialStateProperty.all(Size(100, 100))),
                       child: Center(
                           child: Text("3", style: TextStyle(fontSize: 30))),
                       onPressed: () => textEditor("3")),
